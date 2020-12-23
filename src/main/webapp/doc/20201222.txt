@@ -1,0 +1,32 @@
+client Server아키텍쳐와 web아키텍쳐의 차이점
+web아키텍쳐의 장점
+형상관리 필요성의 이해
+
+웹프로그래밍 이전시대 -> 화면, 로직(업무처리), 데이터
+처음엔 시스템 내 client, server 모듈이 공존 -> 확장이 어려움
+전용 client프로그램 -> 속도가 빠르다
+
+웹 아키텍쳐 -> server에만 배포
+브라우저 기능에 의존-> 제한적인 ui
+브라우저 기능을 벗어나는 추가기능 사용시 호환성 / 보안문제
+모든 브라우저가 동일한 기능을 제공하지 않음(브라우저별 호환문제)
+같은 브라우저의 버전별 호환 문제
+
+web server : client의 요청을 받아서결과를 전송, 정적 자원처리에 최적화
+web applicaton server : 로직에 의해 동적 컨텐츠를 생성하여 webserver에 전달 webserver의 역할을 겸함(tomcat)
+서블릿 기초 -> 동적인 웹페이지를 생성하는 표준 스펙
+httpServlet클래스를 상속하여 작성
+Web Applicaton Server : WAS  (jboss, IBM 웹스피어)  -> Servlet Container + EJB Container
+servlet Container [Web container](tomcat)
+MIME 란?  Multipurpose Internet Mail Extensions
+Maven Project
+Group Id : 회사의 도메인 역순으로 기술 
+                 해당 프로젝트를 진행하는 회사에 대한 정보
+    예) naver.com ==> com.naver
+Artifact Id : Group Id에 해당하는 회사에서 진행하는 프로젝트명
+    예) google : GMAIL, GOOGLE DRIVE
+version : 프로젝트의 버전 (일반적으로 대,중,소 => 3.5.2)
+jar : Java Archive : 클래스들을 묶어 놓은 파일, 압축파일
+war : Web Archive : 웹 프로그램을 묶어 놓은 파일
+        tomcat의 webapps폴더에 war파일을 복사 해놓고 톰캣을 기동하면 war파일을 톰캣으로 
+        자동으로 압축을 해제하여 웹 어플리케이션이 서비스 되도록 한다.(배포)
