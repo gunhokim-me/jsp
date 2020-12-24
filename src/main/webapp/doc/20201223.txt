@@ -1,0 +1,10 @@
+
+	1. 로컬 저장소생성 (jsp프로젝트)
+	2. .gitignore파일 생성 (git으로 관리하지 않을 파일, 폴더를 관리)
+		*commit을 하기전에 .gitignore 파일에 관리제외 대상을 등록해야한다.
+		* gitignore.io를 통해 .gitignore의 내용을 손쉽게 작성할 수 있다.
+	3. github 저장소 생성 (jsp)
+	4. push
+	
+	서블릿 생성
+
