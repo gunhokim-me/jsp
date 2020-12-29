@@ -23,7 +23,7 @@
 		BasicServlet.class 는 kr.or.ddit.servlet.basic 패키지에 속한다. 패키지의 계층 구조와 일치하는 
 		로거 이름이 있는지 찾아 해당 로거를 사용하게 된다. -->
 
-	<logger name="kr.or.ddit" level="debug">
+	<logger name="kr.or.ddit" level="error">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
