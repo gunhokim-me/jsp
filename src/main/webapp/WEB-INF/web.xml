@@ -28,4 +28,34 @@
     <servlet-name>TimesTablesServlet</servlet-name>
     <url-pattern>/TimesTablesServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Scope</display-name>
+    <servlet-name>Scope</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.scope.Scope</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Scope</servlet-name>
+    <url-pattern>/Scope</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>sumCalculation</display-name>
+    <servlet-name>sumCalculation</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.basic.SumCalculation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sumCalculation</servlet-name>
+    <url-pattern>/sumCalculation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>mulCalculation</display-name>
+    <servlet-name>mulCalculation</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.basic.MulCalculation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mulCalculation</servlet-name>
+    <url-pattern>/mulCalculation</url-pattern>
+  </servlet-mapping>
 </web-app>
