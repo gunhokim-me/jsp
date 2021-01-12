@@ -3,7 +3,7 @@ package kr.or.ddit.user.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UserVo {
+public class UserVo2 {
 	private String userid;
 	private String usernm;
 	private String pass;
@@ -16,7 +16,7 @@ public class UserVo {
 	private String realfilename;
 	
 	//대다수의 framework는 기본 생성자를 필요로 한다
-	public UserVo() {}
+	public UserVo2() {}
 	
 	//getter, setter, toString
 	public String getUserid() {
@@ -106,4 +106,3 @@ public class UserVo {
 				+ ", realfilename=" + realfilename + "]";
 	}
 }
-

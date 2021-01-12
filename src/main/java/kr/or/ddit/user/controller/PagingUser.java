@@ -71,6 +71,7 @@ public class PagingUser extends HttpServlet {
 		
 		request.setAttribute("userList", list);
 		request.setAttribute("pagination", pagination);
+		request.setAttribute("pageVo", vo);
 		request.getRequestDispatcher(request.getContextPath() +"/pagingUser.jsp").forward(request, response);
 	}
 

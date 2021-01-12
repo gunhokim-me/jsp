@@ -104,4 +104,24 @@
     <servlet-name>PagingUser</servlet-name>
     <url-pattern>/pagingUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserController</display-name>
+    <servlet-name>UserController</servlet-name>
+    <servlet-class>kr.or.ddit.user.controller.UserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserController</servlet-name>
+    <url-pattern>/user</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ModifyUser</display-name>
+    <servlet-name>ModifyUser</servlet-name>
+    <servlet-class>kr.or.ddit.user.controller.ModifyUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifyUser</servlet-name>
+    <url-pattern>/userModify</url-pattern>
+  </servlet-mapping>
 </web-app>
