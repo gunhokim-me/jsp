@@ -58,24 +58,50 @@
     <servlet-name>mulCalculation</servlet-name>
     <url-pattern>/mulCalculation</url-pattern>
   </servlet-mapping>
-  
-  <!-- error page설정 -->
   <error-page>
-  	<error-code>404</error-code>
-  	<location>/error/404/404.jsp</location>
+    <error-code>404</error-code>
+    <location>/error/404/404.jsp</location>
   </error-page>
   <error-page>
-  	<error-code>500</error-code>
-  	<location>/error/500/500.html</location>
+    <error-code>500</error-code>
+    <location>/error/500/500.html</location>
   </error-page>
   <error-page>
-  	<!-- class full name : 패키지.클래스명 -->
-  	<exception-type>java.lang.ArithmeticException</exception-type>
-  	<location>/error/type/ariError.jsp</location>
+    <exception-type>java.lang.ArithmeticException</exception-type>
+    <location>/error/type/ariError.jsp</location>
   </error-page>
-  
   <error-page>
-  	<exception-type>java.lang.RuntimeException</exception-type>
-  	<location>/error/type/runError.jsp</location>
+    <exception-type>java.lang.RuntimeException</exception-type>
+    <location>/error/type/runError.jsp</location>
   </error-page>
+  <servlet>
+    <description></description>
+    <display-name>AllUser</display-name>
+    <servlet-name>AllUser</servlet-name>
+    <servlet-class>kr.or.ddit.user.controller.AllUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllUser</servlet-name>
+    <url-pattern>/allUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AllEmploy</display-name>
+    <servlet-name>AllEmploy</servlet-name>
+    <servlet-class>kr.or.ddit.emp.controller.AllEmploy</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllEmploy</servlet-name>
+    <url-pattern>/allEmploy</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PagingUser</display-name>
+    <servlet-name>PagingUser</servlet-name>
+    <servlet-class>kr.or.ddit.user.controller.PagingUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PagingUser</servlet-name>
+    <url-pattern>/pagingUser</url-pattern>
+  </servlet-mapping>
 </web-app>
