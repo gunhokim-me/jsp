@@ -10,4 +10,7 @@ public interface UserServiceI {
 	List<UserVo> selectAllUser();
 	UserVo selectUser(String userid);
 	Map<String, Object> selectPagingUser(PageVo vo);
+	int modifyUser(UserVo vo);
+	int countUser(String userid);
+	int registUser(UserVo vo);
 }

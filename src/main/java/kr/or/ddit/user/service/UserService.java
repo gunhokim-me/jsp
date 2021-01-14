@@ -35,4 +35,19 @@ public class UserService implements UserServiceI{
 		
 		return map;
 	}
+
+	@Override
+	public int modifyUser(UserVo vo) {
+		return userDao.modifyUser(vo);
+	}
+
+	@Override
+	public int countUser(String userid) {
+		return userDao.countUser(userid);
+	}
+
+	@Override
+	public int registUser(UserVo vo) {
+		return userDao.registUser(vo);
+	}
 }

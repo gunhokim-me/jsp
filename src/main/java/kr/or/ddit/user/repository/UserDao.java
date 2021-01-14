@@ -55,4 +55,38 @@ public class UserDao implements UserDaoI {
 		return userCnt;
 	}
 
+	@Override
+	public int modifyUser(UserVo vo) {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		int cnt = sqlSession.update("users.modifyUser",vo);
+		if(cnt == 1) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		return cnt;
+	}
+
+	@Override
+	public int countUser(String userid) {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		int cnt = sqlSession.selectOne("users.countUser",userid);
+		sqlSession.close();
+		return cnt;
+	}
+
+	@Override
+	public int registUser(UserVo vo) {
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		int cnt = sqlSession.insert("users.registUser",vo);
+		if(cnt == 1) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		return cnt;
+	}
+
 }

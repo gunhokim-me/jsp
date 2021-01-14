@@ -2,6 +2,7 @@ package kr.or.ddit.user.service;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -87,6 +88,35 @@ public class UserServiceTest {
 		assertEquals(5, list.size());
 		assertEquals(16, userCnt);
 		
+	}
+	
+	//사용자 페이징 조회 테스트
+	@Test
+	public void modifyUserTest() {
+		/***Given***/
+		//userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
+		UserVo vo = new UserVo("ddit","대덕인재","dditpass",new Date(),"개발원 m","대전시 중구 중앙로 76","4층 대덕인재개발원","34940");
+		UserServiceI userService = new UserService();
+		
+		/***When***/
+		int cnt = userService.modifyUser(vo);
+		
+		/***Then***/
+		assertEquals(1, cnt);
+		
+	}
+	
+	@Test
+	public void countUserTest() {
+		/***Given***/
+		String userid = "moon";
+		UserServiceI userService = new UserService();
+		
+		/***When***/
+		int cnt = userService.countUser(userid);
+		
+		/***Then***/
+		assertEquals(1, cnt);
 	}
 
 

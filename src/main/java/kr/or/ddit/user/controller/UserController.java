@@ -21,7 +21,12 @@ public class UserController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserVo vo = new UserVo();
 		
-		String userid = request.getParameter("userid");
+		String userid = (String) request.getAttribute("userid");
+		if(userid == null) {
+			userid = request.getParameter("userid");
+		}
+		
+		logger.debug(userid);
 		vo = service.selectUser(userid);
 		request.setAttribute("uservo", vo);
 		request.getRequestDispatcher(request.getContextPath()+"/user/user.jsp").forward(request, response);

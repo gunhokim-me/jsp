@@ -2,7 +2,6 @@ package kr.or.ddit.user.repository;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
@@ -27,4 +26,11 @@ public interface UserDaoI {
 	//사용자 전체 수 조회
 	int selectAllUserCnt();
 	
+	//사용자 정보 수정
+	//변경이 자주 있을 경우 캡슐화를 하는 것이 좋음
+	int modifyUser(UserVo vo);
+	
+	int countUser(String userid);
+	
+	int registUser(UserVo vo);
 }

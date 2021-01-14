@@ -75,21 +75,40 @@
 								%>
 							</table>
 						</div>
-						<a class="btn btn-default pull-right">사용자 등록</a>
+						<a class="btn btn-default pull-right" href="/user/registUser.jsp">사용자 등록</a>
 						<div class="text-center">
 							<ul class="pagination">
-							<li class="prev disabled"><a href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>"><span>«</span></a></li>
+							<li><a href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>"><span>«</span></a></li>
 								<%
 									int num = ((PageVo)request.getAttribute("pageVo")).getPage();
 									int userCnt = (Integer) request.getAttribute("pagination");
-									for (int i = 1; i <= userCnt; i++) {
-										if(num == i){%>
-											<li class="active"><span><%=i %></span></a></li>	
-										<%}else{%>
+									int cnt = 0;
+									if(num != 1 && (num+3) <= 5) {%>
+									<li><a href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>"><span>1</span></a></li>
+								<%}else if(num != 1 && (num+3) > 5){%>
+									<li><a href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>"><span>1</span></a></li>
+									<li class="prev disabled"><span>---</span></li>
+								<%}%>
+								<%for (int i = num; i <= userCnt; i++) {
+									cnt++;
+									if(num == i && i > 2){ cnt += 2;%>
+										<li><a href="<%=request.getContextPath()%>/pagingUser?page=<%=i-2%>&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>"><span><%=i-2 %></span></a></li>
+										<li><a href="<%=request.getContextPath()%>/pagingUser?page=<%=i-1%>&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>"><span><%=i-1 %></span></a></li>
+										<li class="active"><span><%=i %></span></li>	
+									<%}else if(num == i && i <= 2){%>
+										<li class="active"><span><%=i %></span></li>	
+									<%}else{
+										if(cnt <= 5){ %>
 											<li><a href="<%=request.getContextPath()%>/pagingUser?page=<%=i%>&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>"><span><%=i %></span></a></li>
-										<% }%>
-									<% } %>
+									<% }%>
+								<% } %>
+								<% } if(num+2 == userCnt){%>
 										<li class="next"><a href="<%=request.getContextPath()%>/pagingUser?page=<%=userCnt%>&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>">»</a></li>
+								<%}else{ %>
+									<li class="prev disabled"><span>---</span></li>
+									<li><a href="<%=request.getContextPath()%>/pagingUser?page=<%=userCnt %>&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>"><span><%=userCnt %></span></a></li>
+									<li class="next"><a href="<%=request.getContextPath()%>/pagingUser?page=<%=userCnt%>&pageSize=<%=((PageVo)request.getAttribute("pageVo")).getPageSize()%>">»</a></li>
+								<%} %>
 							</ul>
 						</div>
 					</div>

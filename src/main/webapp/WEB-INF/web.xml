@@ -116,12 +116,32 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ModifyUser</display-name>
-    <servlet-name>ModifyUser</servlet-name>
-    <servlet-class>kr.or.ddit.user.controller.ModifyUser</servlet-class>
+    <display-name>UserModify</display-name>
+    <servlet-name>UserModify</servlet-name>
+    <servlet-class>kr.or.ddit.user.controller.UserModify</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ModifyUser</servlet-name>
+    <servlet-name>UserModify</servlet-name>
     <url-pattern>/userModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegistUser</display-name>
+    <servlet-name>RegistUser</servlet-name>
+    <servlet-class>kr.or.ddit.user.controller.RegistUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistUser</servlet-name>
+    <url-pattern>/registUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegistUserTest</display-name>
+    <servlet-name>RegistUserTest</servlet-name>
+    <servlet-class>kr.or.ddit.user.controller.RegistUserTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistUserTest</servlet-name>
+    <url-pattern>/registUserTest</url-pattern>
   </servlet-mapping>
 </web-app>

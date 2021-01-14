@@ -69,6 +69,7 @@ public class PagingUser extends HttpServlet {
 		
 		List<UserVo> list = (List<UserVo>) map.get("userList");
 		
+		
 		request.setAttribute("userList", list);
 		request.setAttribute("pagination", pagination);
 		request.setAttribute("pageVo", vo);
