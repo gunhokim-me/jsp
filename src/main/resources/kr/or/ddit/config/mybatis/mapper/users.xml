@@ -59,4 +59,10 @@
 		INSERT INTO users (userid, usernm,pass,reg_dt,alias,addr1,addr2,zipcode) 
 			   VALUES (#{userid}, #{usernm},#{pass}, #{reg_dt},#{alias}, #{addr1}, #{addr2},#{zipcode})
 	</insert>
+	
+	<!-- 회원 삭제 -->
+	<delete id="deleteUser" parameterType="String" >
+		DELETE users
+		WHERE userid = #{userid}
+	</delete>
 </mapper>
