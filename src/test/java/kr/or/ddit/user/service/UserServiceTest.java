@@ -6,17 +6,35 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
 
 public class UserServiceTest {
-
+	private UserServiceI userService;
+	@Before
+	public void setup() {
+		userService = new UserService();
+		
+		UserVo vo = new UserVo("testUser", "테스트사용자", "testUserPass", new Date(),"대덕", "대전 중구 중앙로 76", "4층", "34940");
+		
+		userService.registUser(vo);
+		
+		userService.deleteUser("ddit");
+	}
+	
+	@After
+	public void tearDown() {
+		userService.deleteUser("testUser");
+	}
+	
+	
 	@Test
 	public void selectAllUserTest() {
 		/***Given***/
-		UserServiceI userService = new UserService();
 
 		/***When***/
 		List<UserVo> userList = userService.selectAllUser();
@@ -30,7 +48,6 @@ public class UserServiceTest {
 	public void selectUserTest() {
 		/***Given***/
 		String userid = "brown";
-		UserServiceI userService = new UserService();
 		
 		/***When***/
 		UserVo user = userService.selectUser(userid);
@@ -46,7 +63,6 @@ public class UserServiceTest {
 	public void selectUserNotExsistTest() {
 		/***Given***/
 		String userid = "brownn";
-		UserServiceI userService = new UserService();
 		
 		/***When***/
 		UserVo user = userService.selectUser(userid);
@@ -75,7 +91,6 @@ public class UserServiceTest {
 	@Test
 	public void selectPagingUserTest() {
 		/***Given***/
-		UserServiceI userService = new UserService();
 		PageVo vo = new PageVo(1,5);
 		
 		/***When***/
@@ -96,10 +111,9 @@ public class UserServiceTest {
 		/***Given***/
 		//userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
 		UserVo vo = new UserVo("ddit","대덕인재","dditpass",new Date(),"개발원 m","대전시 중구 중앙로 76","4층 대덕인재개발원","34940");
-		UserServiceI userService = new UserService();
 		
 		/***When***/
-		int cnt = userService.modifyUser(vo);
+		int cnt = userService.registUser(vo);
 		
 		/***Then***/
 		assertEquals(1, cnt);
@@ -110,10 +124,21 @@ public class UserServiceTest {
 	public void countUserTest() {
 		/***Given***/
 		String userid = "moon";
-		UserServiceI userService = new UserService();
 		
 		/***When***/
 		int cnt = userService.countUser(userid);
+		
+		/***Then***/
+		assertEquals(1, cnt);
+	}
+	
+	@Test
+	public void deleteUserTest() {
+		/***Given***/
+		String userid = "testUser";
+		
+		/***When***/
+		int cnt = userService.deleteUser(userid);
 		
 		/***Then***/
 		assertEquals(1, cnt);

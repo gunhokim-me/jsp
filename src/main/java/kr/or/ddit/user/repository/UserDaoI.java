@@ -33,4 +33,7 @@ public interface UserDaoI {
 	int countUser(String userid);
 	
 	int registUser(UserVo vo);
+	
+	//사용자 삭제
+	int deleteUser(String userid);
 }

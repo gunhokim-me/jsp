@@ -5,18 +5,39 @@ import static org.junit.Assert.*;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
 
 public class UserDaoTest {
+	private UserDao userDao;
+	@Before
+	public void setup() {
+		userDao = new UserDao();
+		
+		//테스트에서 사용할 신규 사용자 추가
+		UserVo vo = new UserVo("testUser", "테스트사용자", "testUserPass", new Date(),"대덕", "대전 중구 중앙로 76", "4층", "34940");
+		
+		//데이터가 있는데 추가되면 에러가 발생 꼭 삭제를 해주어야한다.
+		userDao.registUser(vo);
+		
+		//신규입력 테스트를 위해 테스트 과정에서 입력된 데이터를 삭제하겠다.
+		userDao.deleteUser("ddit");
+	}
 	
+	//테스트용으로 등록한 데이터를 삭제한다.
+	@After
+	public void tesrDown() {
+		userDao.deleteUser("testUser");
+	}
+		
 	//전체 사용자 조회 테스트
 	@Test
 	public void selectAllUserTest() {
 		/***Given***/
-		UserDao userDao = new UserDao();
 
 		/***When***/
 		List<UserVo> userList = userDao.selectAllUser();
@@ -30,7 +51,6 @@ public class UserDaoTest {
 	public void selectUserTest() {
 		/***Given***/
 		String userid = "brown";
-		UserDaoI userDao = new UserDao();
 		
 		/***When***/
 		UserVo user = userDao.selectUser(userid);
@@ -45,7 +65,6 @@ public class UserDaoTest {
 	@Test
 	public void selectPagingUserTest() {
 		/***Given***/
-		UserDaoI userDao = new UserDao();
 		PageVo vo = new PageVo(1,5);
 		
 		/***When***/
@@ -60,7 +79,6 @@ public class UserDaoTest {
 	@Test
 	public void selectUserCnt() {
 		/***Given***/
-		UserDaoI userDao = new UserDao();
 		
 		/***When***/
 		int userCnt = userDao.selectAllUserCnt();
@@ -70,15 +88,31 @@ public class UserDaoTest {
 		
 	}
 	
+//	@Test
+//	public void modifyUserTest() {
+//		/***Given***/
+//		//userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
+//		UserVo vo = new UserVo("ddit","대덕인재","dditpass",new Date(),"개발원 m","대전시 중구 중앙로 76","4층 대덕인재개발원","34940");
+//		
+//		/***When***/
+//		int cnt = userDao.modifyUser(vo);
+//		
+//		/***Then***/
+//		assertEquals(1, cnt);
+//		
+//
+//	}
+	
 	@Test
-	public void modifyUserTest() {
+	public void insertUserTest() {
+
+		
 		/***Given***/
 		//userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
 		UserVo vo = new UserVo("ddit","대덕인재","dditpass",new Date(),"개발원 m","대전시 중구 중앙로 76","4층 대덕인재개발원","34940");
-		UserDaoI userDao = new UserDao();
 		
 		/***When***/
-		int cnt = userDao.modifyUser(vo);
+		int cnt = userDao.registUser(vo);
 		
 		/***Then***/
 		assertEquals(1, cnt);
@@ -89,10 +123,22 @@ public class UserDaoTest {
 		/***Given***/
 		//userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
 		String userid = "moon";
-		UserDaoI userDao = new UserDao();
 		
 		/***When***/
 		int cnt = userDao.countUser(userid);
+		
+		/***Then***/
+		assertEquals(1, cnt);
+	}
+	
+	@Test
+	public void deleteUserTest() {
+		/***Given***/
+		//해당 테스트가 실행될 때는 testUser라는 사용자가 before메소드에 등록인 된 상태
+		String userid = "testUser";
+		
+		/***When***/
+		int cnt = userDao.deleteUser(userid);
 		
 		/***Then***/
 		assertEquals(1, cnt);

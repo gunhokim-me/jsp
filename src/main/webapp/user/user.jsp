@@ -16,6 +16,21 @@
 <%@ include file="/common/common_lib.jsp"%>
 <link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<script>
+	//문서 로딩이 완료 되었을 때
+$(function(){
+	$("#modifyBtn").on("click", function(){
+		$("#frm").attr("method","get");		
+		$("#frm").attr("action","<%=request.getContextPath()%>/userModify");
+		$("#frm").submit();
+	});
+	$("#deleteBtn").on("click", function(){
+		$("#frm").attr("method","post");		
+		$("#frm").attr("action","<%=request.getContextPath()%>/deleteUser");
+		$("#frm").submit();
+	});
+});
+</script>
 </head>
 
 <body>
@@ -29,8 +44,16 @@
 			<%
 				UserVo vo = (UserVo)request.getAttribute("uservo");
 			%>
-				<form class="form-horizontal" role="form" action="<%=request.getContextPath()%>/userModify">
+				<form class="form-horizontal" role="form" id="frm" action="<%=request.getContextPath()%>/userModify">
 					<input type = "hidden" name="userid" value="<%=vo.getUserid() %>"/>
+					
+					<div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
+						<div class="col-sm-10">
+							<img alt="이미지 없음" src="<%=request.getContextPath() %>/profile/<%=vo.getUserid()%>.png">
+						</div>
+					</div>
+					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
@@ -41,7 +64,7 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=vo.getUsernm() %></label>
+							<label class="control-label"><%=vo.getUsernm()%></label>
 						</div>
 					</div>
 					
@@ -96,7 +119,11 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">사용자 수정</button>
+<!--						사용자 수정 : method - get = /userModify
+							사용자 삭제 : mothod - post = /deleteUser
+							파라미터는 둘다 userid 하나만 있으면 가능 -->
+							<button type="button" id="modifyBtn" class="btn btn-default">사용자 수정</button>
+							<button type="button" id="deleteBtn" class="btn btn-default">사용자 삭제</button>
 						</div>
 					</div>
 				</form>

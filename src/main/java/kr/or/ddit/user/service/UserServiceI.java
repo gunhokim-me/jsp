@@ -13,4 +13,5 @@ public interface UserServiceI {
 	int modifyUser(UserVo vo);
 	int countUser(String userid);
 	int registUser(UserVo vo);
+	int deleteUser(String userid);
 }

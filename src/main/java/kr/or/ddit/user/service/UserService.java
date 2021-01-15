@@ -50,4 +50,9 @@ public class UserService implements UserServiceI{
 	public int registUser(UserVo vo) {
 		return userDao.registUser(vo);
 	}
+
+	@Override
+	public int deleteUser(String userid) {
+		return userDao.deleteUser(userid);
+	}
 }
