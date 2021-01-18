@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +16,8 @@
 
 <title>allUser</title>
 <%@ include file="/common/common_lib.jsp" %>
-<link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
 
 </head>
 
@@ -43,7 +44,15 @@
 					<th>사용자 별명</th>
 					<th>등록일시</th>
 				</tr>
-				<%	List<UserVo> list = (List<UserVo>)request.getAttribute("userList");
+				<c:forEach items="${userList}" var="user">
+					<tr>
+						<td>${user.userid}</td>
+						<td>${user.usernm}</td>
+						<td>${user.alias}</td>
+						<td>${user.getReg_dt_fmt()}</td>
+					</tr>
+				</c:forEach>
+				<%-- <%	List<UserVo> list = (List<UserVo>)request.getAttribute("userList");
 					for(UserVo vo : list){
 						%>
 						<tr>
@@ -52,7 +61,7 @@
 							<td><%=vo.getAlias()%></td>
 							<td><%=vo.getReg_dt_fmt() %></td>
 						</tr>
-					<%}%>
+					<%}%> --%>
 			</table>
 		</div>
 
@@ -60,11 +69,11 @@
 
 		<div class="text-center">
 			<ul class="pagination">
-				<li><a href="<%=request.getContextPath()%>/pagingUser?page=1">1</a></li>
-				<li><a href="<%=request.getContextPath()%>/pagingUser?page=2">2</a></li>
-				<li><a href="<%=request.getContextPath()%>/pagingUser?page=3">3</a></li>
-				<li><a href="<%=request.getContextPath()%>/pagingUser?page=4">4</a></li>
-				<li><a href="<%=request.getContextPath()%>/pagingUser?page=5">5</a></li>
+				<li><a href="${pageContext.request.contextPath}/pagingUser?page=1">1</a></li>
+				<li><a href="${pageContext.request.contextPath}/pagingUser?page=2">2</a></li>
+				<li><a href="${pageContext.request.contextPath}/pagingUser?page=3">3</a></li>
+				<li><a href="${pageContext.request.contextPath}/pagingUser?page=4">4</a></li>
+				<li><a href="${pageContext.request.contextPath}/pagingUser?page=5">5</a></li>
 			</ul>
 		</div>
 	</div>

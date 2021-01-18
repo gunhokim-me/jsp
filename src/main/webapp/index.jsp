@@ -8,15 +8,13 @@
 </head>
 <body>
 
-	<%
-		request.getContextPath();
-	%>
+		${pageContext.request.contextPath}
 	
 	
 	
 	webapp/index.jsp ==> localhost/index.jsp
 	
 	brown.png
-	<img src="<%=request.getContextPath()%>/image/brown.png">
+	<img src="${pageContext.request.contextPath}/image/brown.png">
 </body>
 </html>

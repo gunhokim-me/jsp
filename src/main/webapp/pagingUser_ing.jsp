@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +88,7 @@
 									<c:forEach var="i" begin="${pageVo.getPage()}" end="${pagination}">
 										<c:choose>
 											<c:when test="${pageVo.getPage() == i && i > 2}">
-												<c:set var="cnt" value="2"></c:set>
+												${cnt + 2}
 												<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i-2 }&pageSize=${pageVo.getPageSize()}"><span>${i-2 }</span></a></li>
 												<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i-1 }&pageSize=${pageVo.getPageSize()}"><span>${i-1 }</span></a></li>
 												<li class="active"><span>${i }</span></li>	
@@ -97,7 +98,6 @@
 											</c:when>
 											<c:otherwise>
 												<c:if test="${cnt <=5 }">
-													<c:set var="cnt" value="${cnt+1}"></c:set>
 													<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i }&pageSize=${pageVo.getPageSize()}"><span>${i }</span></a></li>
 												</c:if>
 											</c:otherwise>

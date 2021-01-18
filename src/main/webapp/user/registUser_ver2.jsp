@@ -14,8 +14,8 @@
 <title>Jsp</title>
 
 <%@ include file="/common/common_lib.jsp"%>
-<link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
 <%
 	UserVo vo2 = (UserVo) request.getAttribute("vo");
 %>
@@ -88,15 +88,12 @@ $(function(){
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			
-				<form class="form-horizontal" id ="test1"role="form" action="/registUser" method="post">
+				contextPath el
+				<form class="form-horizontal" id ="test1"role="form" action="${pageContext.request.contextPath }/registUser" method="post">
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-8">
-						<%
-							String userid = request.getParameter("userid");
-							userid = userid == null ? "" : userid;
-						%>
-							<input type="text" class="form-control" id="userid" name="userid" placeholder="사용자 아이디" value="<%=userid%>">
+							<input type="text" class="form-control" id="userid" name="userid" placeholder="사용자 아이디" value="${param.userid }">
 						</div>
 						<div class="col-sm-2">
 							<button type="button" class="btn btn-default" id="idcheck">중복검사</button>
@@ -106,22 +103,14 @@ $(function(){
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
-						<%
-							String usernm = request.getParameter("usernm");
-							usernm = usernm == null ? "" : usernm;
-						%>
-							<input type="text" class="form-control" value="<%=usernm %>" id="usernm" name="usernm" placeholder="사용자 이름">
+							<input type="text" class="form-control" value="${param.usernm }" id="usernm" name="usernm" placeholder="사용자 이름">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">Password</label>
 						<div class="col-sm-10">
-						<%
-							String pass = request.getParameter("pass");
-							pass = pass == null ? "" : pass;
-						%>
-							<input type="password" class="form-control"value="<%=pass %>" id="pass" name="pass" placeholder="비밀번호">
+							<input type="password" class="form-control"value="${param.pass}" id="pass" name="pass" placeholder="비밀번호">
 						</div>
 					</div>
 					
@@ -135,22 +124,14 @@ $(function(){
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
-						<%
-							String alias = request.getParameter("alias");
-							alias = alias == null ? "" : alias;
-						%>
-							<input type="text" class="form-control"value="<%=alias %>" id="alias" name="alias" placeholder="별명">
+							<input type="text" class="form-control"value="${param.alias }" id="alias" name="alias" placeholder="별명">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
-						<%
-							String addr1 = request.getParameter("addr1");
-							addr1 = addr1 == null ? "" : addr1;
-						%>
-							<input type="text" class="form-control"  value="<%=addr1 %>" id="addr1" name="addr1" placeholder="도로주소" readonly="readonly">
+							<input type="text" class="form-control"  value="${param.addr1 }" id="addr1" name="addr1" placeholder="도로주소" readonly="readonly">
 						</div>
 						<div class="col-sm-2">
 							<button type="button" class="btn btn-default" id="test">주소검색</button>
@@ -160,22 +141,14 @@ $(function(){
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
-						<%
-							String addr2 = request.getParameter("addr2");
-							addr2 = addr2 == null ? "" : addr2;
-						%>
-							<input type="text" class="form-control" value="<%=addr2 %>" id="addr2" name="addr2" placeholder="상세주소">
+							<input type="text" class="form-control" value="${param.addr2}" id="addr2" name="addr2" placeholder="상세주소">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">우편번호 코드</label>
 						<div class="col-sm-10">
-						<%
-							String zipcode = request.getParameter("zipcode");
-								zipcode = zipcode == null ? "" : zipcode;
-						%>
-							<input type="text" class="form-control" id="zipcode" name="zipcode" value="<%=zipcode %>" placeholder="우편번호 코드" readonly="readonly">
+							<input type="text" class="form-control" id="zipcode" name="zipcode" value="${param.zipcode}" placeholder="우편번호 코드" readonly="readonly">
 						</div>
 					</div>
 					<div class="form-group">
