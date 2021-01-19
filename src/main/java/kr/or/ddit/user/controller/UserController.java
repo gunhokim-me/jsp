@@ -28,7 +28,7 @@ public class UserController extends HttpServlet {
 		
 		logger.debug(userid);
 		vo = service.selectUser(userid);
-		request.setAttribute("uservo", vo);
+		request.setAttribute("user", vo);
 		request.getRequestDispatcher(request.getContextPath()+"/user/user.jsp").forward(request, response);
 	}
 

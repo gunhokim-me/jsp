@@ -46,29 +46,26 @@ $(function(){
 				<%@ include file="/common/left.jsp"%>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-			<%
-				UserVo vo = (UserVo)request.getAttribute("uservo");
-			%>
 				<form class="form-horizontal" role="form" action="" method="post">
-					<input type="hidden" name = "userid" value=<%= vo.getUserid() %>/>
+					<input type="hidden" name = "userid" value=${uservo.userid }/>
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%=vo.getUserid() %></label>
+							<label class="control-label">${uservo.userid }</label>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="usernm" name="usernm" value = "<%=vo.getUsernm() %>" placeholder="사용자 이름">
+							<input type="text" class="form-control" id="usernm" name="usernm" value = "${uservo.usernm }" placeholder="사용자 이름">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">Password</label>
 						<div class="col-sm-10">
-							<input type="password" class="form-control" id="pass" name="pass" value = "<%=vo.getPass() %>" placeholder="비밀번호">
+							<input type="password" class="form-control" id="pass" name="pass" value = "${uservo.pass }" placeholder="비밀번호">
 						</div>
 					</div>
 					
@@ -82,14 +79,14 @@ $(function(){
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="alias" name="alias" value = "<%=vo.getAlias() %>" placeholder="별명">
+							<input type="text" class="form-control" id="alias" name="alias" value = "${uservo.alias }" placeholder="별명">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" id="addr1" name="addr1" value = "<%=vo.getAddr1() %>" placeholder="도로주소" readonly="readonly">
+							<input type="text" class="form-control" id="addr1" name="addr1" value = "${uservo.addr1 }" placeholder="도로주소" readonly="readonly">
 						</div>
 						<div class="col-sm-2">
 							<button type="button" class="btn btn-default" id="test">주소검색</button>
@@ -99,14 +96,14 @@ $(function(){
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="addr2" name="addr2" value = "<%=vo.getAddr2() %>" placeholder="상세주소">
+							<input type="text" class="form-control" id="addr2" name="addr2" value = "${uservo.addr2 }" placeholder="상세주소">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">우편번호 코드</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="zipcode" name="zipcode" value = "<%=vo.getZipcode() %>" placeholder="우편번호 코드" readonly="readonly">
+							<input type="text" class="form-control" id="zipcode" name="zipcode" value = "${uservo.zipcode }" placeholder="우편번호 코드" readonly="readonly">
 						</div>
 					</div>
 
