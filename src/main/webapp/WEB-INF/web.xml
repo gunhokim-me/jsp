@@ -179,6 +179,9 @@
 	<listener>
 		<listener-class>kr.or.ddit.listener.ApplicationListener</listener-class>
 	</listener>
+	<listener>
+		<listener-class>kr.or.ddit.listener.LoginUserListener</listener-class>
+	</listener>
   
 	<resource-ref>
 		<description>DB Connection</description>
