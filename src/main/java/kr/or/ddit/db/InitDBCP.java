@@ -16,7 +16,7 @@ public class InitDBCP extends HttpServlet{
 
 	@Override
 	public void init() throws ServletException {
-		logger.debug("InitDBCP.init()");
+//		logger.debug("InitDBCP.init()");
 		
 		//커넥션 풀 생성
 		//application scope에 커넥션 풀 저장

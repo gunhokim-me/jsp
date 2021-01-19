@@ -15,3 +15,16 @@ filter를 이용하여 요청을 servlet으로 전다랗기 전에 서버가 생
 request객체가 원본 파라미터 맵이 아닌, 우리가 만든 map객체를 사용할 수 있도록 parameter관련 메소드를 4개 재정의
 
 wrapper ==> HttpServletRequestWrapper 클래스 상속
+
+Resource Bundle : 국제화 서비스를 위한 번역 파일
+파일 이름 형식 : 리소스번들이름_언어코드_국가코드.properties
+		      msg_ko.properties
+		      msg_en.properties
+		      msg_ja.properties
+		      
+		      지원하지 않는 언어, 국가코드에 대해서 기본적으로 적용되는 파일
+		      msg.properties
+
+파일작성
+코드=메세지
+jsp에는 코드 부분을 기술하면 국제화 처리에 의해 사용자가 요청한 언어의 메시지로 치환된다.

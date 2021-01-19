@@ -1,6 +1,7 @@
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +75,7 @@ $(function(){
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">등록일시</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="regdt" name=""regdt"" value = "<%=vo.getReg_dt_fmt() %>" placeholder="등록일시">
+							<input type="text" class="form-control" id="regdt" name="" value = "<fmt:formatDate value="${user.reg_dt}" pattern="yyyy.MM.dd"/>" placeholder="등록일시">
 						</div>
 					</div>
 

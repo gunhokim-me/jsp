@@ -39,7 +39,7 @@ public class PagingUser extends HttpServlet {
 		String pageSizeParam = request.getParameter("pageSize");
 		
 		int page = pageparam == null? 1 :  Integer.parseInt(pageparam) ;
-		int pageSize = pageSizeParam == null? 1 :  Integer.parseInt(pageSizeParam) ;
+		int pageSize = pageSizeParam == null? 5 :  Integer.parseInt(pageSizeParam) ;
 		
 		//if 구문 사용시 
 //		int page = 0;
