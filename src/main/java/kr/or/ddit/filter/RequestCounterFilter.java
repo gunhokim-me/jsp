@@ -37,7 +37,7 @@ public class RequestCounterFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest)request;
 		String uri = req.getRequestURI();
 		
-		logger.debug("RequestCounterFilter 호출");
+//		logger.debug("RequestCounterFilter 호출");
 		/* logger.debug("request uri : {}" , uri); */
 		
 		//requestCountMap uri에 해당 키가 있을 수 도 있고 없을 수 도 있다.

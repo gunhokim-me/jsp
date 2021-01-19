@@ -9,29 +9,25 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebInitParam;
+import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+@WebFilter("/*")
+public class DefaultParameterFilter implements Filter{
 
-/*@WebFilter(urlPatterns = "/*", initParams = {@WebInitParam(name = "encoding", value="UTF-8")})*/
-public class EncodingFilter implements Filter {
-	
-	FilterConfig config;
-	private static final Logger logger = LoggerFactory.getLogger(EncodingFilter.class);
-	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		this.config = filterConfig;
+		
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		request.setCharacterEncoding(config.getInitParameter("encoding"));
-//		logger.debug("EncodingFilter 호출");
-		chain.doFilter(request, response);
+		//인자로 등어온 request 객체를 이용하여 wrapper로 만들고
+		//chain.doFilter 메소드를 이용하여 다른 필터나 서블릿으로 요청을 전달할 때
+		//wrapper 클래스로 전달
+		DefaultParameterRequestWrapper wrapper = new DefaultParameterRequestWrapper((HttpServletRequest)request);
 		
+		chain.doFilter(wrapper, response);
 	}
 
 	@Override
