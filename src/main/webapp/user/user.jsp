@@ -16,19 +16,19 @@
 <title>Jsp</title>
 
 <%@ include file="/common/common_lib.jsp"%>
-<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+<link href="${cp}/css/dashboard.css" rel="stylesheet">
+<link href="${cp}/css/blog.css" rel="stylesheet">
 <script>
 	//문서 로딩이 완료 되었을 때
 $(function(){
 	$("#modifyBtn").on("click", function(){
 		$("#frm").attr("method","get");		
-		$("#frm").attr("action","${pageContext.request.contextPath}/userModify");
+		$("#frm").attr("action","${cp}/userModify");
 		$("#frm").submit();
 	});
 	$("#deleteBtn").on("click", function(){
 		$("#frm").attr("method","post");		
-		$("#frm").attr("action","${pageContext.request.contextPath}/deleteUser");
+		$("#frm").attr("action","${cp}/deleteUser");
 		$("#frm").submit();
 	});
 });
@@ -43,13 +43,13 @@ $(function(){
 				<%@ include file="/common/left.jsp"%>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<form class="form-horizontal" role="form" id="frm" action="${pageContext.request.contextPath}/userModify">
+				<form class="form-horizontal" role="form" id="frm" action="${cp}/userModify">
 					<input type = "hidden" name="userid" value="${user.userid}"/>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img alt="이미지 없음" src="${pageContext.request.contextPath}/profile/${user.userid }.png">
+							<img alt="이미지 없음" src="${cp}/profile/${user.userid }.png">
 						</div>
 					</div>
 					

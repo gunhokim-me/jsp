@@ -14,8 +14,8 @@
 <title>Jsp</title>
 
 <%@ include file="/common/common_lib.jsp"%>
-<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+<link href="${cp}/css/dashboard.css" rel="stylesheet">
+<link href="${cp}/css/blog.css" rel="stylesheet">
 <%
 	UserVo vo2 = (UserVo) request.getAttribute("vo");
 %>
@@ -89,7 +89,7 @@ $(function(){
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			
 				contextPath el
-				<form class="form-horizontal" id ="test1"role="form" action="${pageContext.request.contextPath }/registUser" method="post">
+				<form class="form-horizontal" id ="test1"role="form" action="${cp }/registUser" method="post">
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-8">

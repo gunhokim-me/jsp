@@ -17,8 +17,8 @@
 
 <title>allUser</title>
 <%@ include file="/common/common_lib.jsp" %>
-<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+<link href="${cp}/css/dashboard.css" rel="stylesheet">
+<link href="${cp}/css/blog.css" rel="stylesheet">
 
 </head>
 
@@ -70,11 +70,11 @@
 
 		<div class="text-center">
 			<ul class="pagination">
-				<li><a href="${pageContext.request.contextPath}/pagingUser?page=1">1</a></li>
-				<li><a href="${pageContext.request.contextPath}/pagingUser?page=2">2</a></li>
-				<li><a href="${pageContext.request.contextPath}/pagingUser?page=3">3</a></li>
-				<li><a href="${pageContext.request.contextPath}/pagingUser?page=4">4</a></li>
-				<li><a href="${pageContext.request.contextPath}/pagingUser?page=5">5</a></li>
+				<li><a href="${cp}/pagingUser?page=1">1</a></li>
+				<li><a href="${cp}/pagingUser?page=2">2</a></li>
+				<li><a href="${cp}/pagingUser?page=3">3</a></li>
+				<li><a href="${cp}/pagingUser?page=4">4</a></li>
+				<li><a href="${cp}/pagingUser?page=5">5</a></li>
 			</ul>
 		</div>
 	</div>

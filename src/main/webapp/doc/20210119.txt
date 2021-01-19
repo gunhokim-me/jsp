@@ -35,3 +35,10 @@ jsp에는 코드 부분을 기술하면 국제화 처리에 의해 사용자가 
   1) request        : ServletRequestListener
   2) session        : HttpSessionListener
   3) application    : ServletContextLisener
+    ${pageContexxt.request.,contextPath} ==> ${cp}
+    서버가 가동 되었을 때
+    application scope에 cp라는 속성으로 contextPath 값 저장
+2. attribute
+    
+리스너 생성(알맞은 인터페이스 구현한 클래스 생성)
+리스너 등록(web.xml)

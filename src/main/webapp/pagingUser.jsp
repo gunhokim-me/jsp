@@ -18,8 +18,8 @@
 <title>allUser</title>
 
 <%@ include file="/common/common_lib.jsp"%>
-<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+<link href="${cp}/css/dashboard.css" rel="stylesheet">
+<link href="${cp}/css/blog.css" rel="stylesheet">
 
 <script>
 	//문서가 로딩이 완료되고 나서 실행되는 영역
@@ -37,7 +37,7 @@
 </head>
 
 <body>
-<form id="frm" action="${pageContext.request.contextPath}/user">
+<form id="frm" action="${cp}/user">
 	<input type="hidden" id="userid" name="userid" value=""/>
 </form>
 
@@ -74,14 +74,14 @@
 						<a class="btn btn-default pull-right" href="/user/registUser.jsp">사용자 등록</a>
 						<div class="text-center">
 							<ul class="pagination">
-							<li><a href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=${pageVo.getPageSize()}"><span>«</span></a></li>
+							<li><a href="${cp}/pagingUser?page=1&pageSize=${pageVo.getPageSize()}"><span>«</span></a></li>
 									<c:set var="cnt" value="0"></c:set>
 									<c:choose>
 										<c:when test="${pageVo.getPage() != 1 && (pageVo.getPage()+3) <= 5 }">
-											<li><a href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=${pageVo.getPageSize()}"><span>1</span></a></li>
+											<li><a href="${cp}/pagingUser?page=1&pageSize=${pageVo.getPageSize()}"><span>1</span></a></li>
 										</c:when>
 										<c:when test="${pageVo.getPage() != 1 && (pageVo.getPage()+3) > 5 }">
-											<li><a href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=${pageVo.getPageSize()}"><span>1</span></a></li>
+											<li><a href="${cp}/pagingUser?page=1&pageSize=${pageVo.getPageSize()}"><span>1</span></a></li>
 											<li class="prev disabled"><span>---</span></li>
 										</c:when>
 									</c:choose>
@@ -89,8 +89,8 @@
 										<c:choose>
 											<c:when test="${pageVo.getPage() == i && i > 2}">
 												<c:set var="cnt" value="2"></c:set>
-												<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i-2 }&pageSize=${pageVo.getPageSize()}"><span>${i-2 }</span></a></li>
-												<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i-1 }&pageSize=${pageVo.getPageSize()}"><span>${i-1 }</span></a></li>
+												<li><a href="${cp}/pagingUser?page=${i-2 }&pageSize=${pageVo.getPageSize()}"><span>${i-2 }</span></a></li>
+												<li><a href="${cp}/pagingUser?page=${i-1 }&pageSize=${pageVo.getPageSize()}"><span>${i-1 }</span></a></li>
 												<li class="active"><span>${i }</span></li>	
 											</c:when>
 											<c:when test="${pageVo.getPage() == i && i <= 2}">
@@ -99,19 +99,19 @@
 											<c:otherwise>
 												<c:if test="${cnt <=5 }">
 													<c:set var="cnt" value="${cnt+1}"></c:set>
-													<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i }&pageSize=${pageVo.getPageSize()}"><span>${i }</span></a></li>
+													<li><a href="${cp}/pagingUser?page=${i }&pageSize=${pageVo.getPageSize()}"><span>${i }</span></a></li>
 												</c:if>
 											</c:otherwise>
 										</c:choose>
 									</c:forEach>
 									<c:choose>
 										<c:when test="${pageVo.getPage()+2 ==  pagination}">
-											<li class="next"><a href="${pageContext.request.contextPath}/pagingUser?page=${pagination}&pageSize=${pageVo.getPageSize()}">»</a></li>
+											<li class="next"><a href="${cp}/pagingUser?page=${pagination}&pageSize=${pageVo.getPageSize()}">»</a></li>
 										</c:when>
 										<c:otherwise>
 											<li class="prev disabled"><span>---</span></li>
-											<li><a href="${pageContext.request.contextPath}/pagingUser?page=${pagination}&pageSize=${pageVo.getPageSize()}"><span>${pagination}</span></a></li>
-											<li class="next"><a href="${pageContext.request.contextPath}/pagingUser?page=${pagination}&pageSize=${pageVo.getPageSize()}">»</a></li>
+											<li><a href="${cp}/pagingUser?page=${pagination}&pageSize=${pageVo.getPageSize()}"><span>${pagination}</span></a></li>
+											<li class="next"><a href="${cp}/pagingUser?page=${pagination}&pageSize=${pageVo.getPageSize()}">»</a></li>
 										</c:otherwise>
 									</c:choose>
 							</ul>

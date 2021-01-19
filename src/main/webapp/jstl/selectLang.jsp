@@ -23,7 +23,7 @@
 <body>
 <!-- select box로 설정한 언어로 GREETING, LANG 값을 표현
 	 select box는 사용자가 설정한 언어 값으로 선택이 되어 있게 설정 -->
-<form id="lang" action="${pageContext.request.contextPath}/jstl/selectLang.jsp" method="get">
+<form id="lang" action="${cp}/jstl/selectLang.jsp" method="get">
 	<input type="hidden" id="langs" name="langs" value=""/>
 </form>
 <select name="sel">
