@@ -81,10 +81,10 @@
     <div class="container">
       <form id="frm" class="form-signin" action="${pageContext.request.contextPath}/LoginController" method="POST">
         <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="userid" class="sr-only">userid</label>
-        <input type="text" name="userid" id="userid" class="form-control" placeholder="UserId" required autofocus>
+        <label for="userid" class="sr-only" >userid</label>
+        <input type="text" name="userid" id="userid" class="form-control" placeholder="UserId"  required value="sally" autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="pass" class="form-control" placeholder="Password" required value="brownpass">
+        <input type="password" name="pass" class="form-control" placeholder="Password" required value="sallyPass">
         <div class="checkbox">
           <label>
             <input type="checkbox" id="rememberme" value="remember-me"> Remember me

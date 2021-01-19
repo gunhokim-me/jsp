@@ -145,6 +145,28 @@
     <url-pattern>/registUserTest</url-pattern>
   </servlet-mapping>
   
+  <filter>
+  	<filter-name>requestCountFilter</filter-name>
+  	<filter-class>kr.or.ddit.filter.RequestCounterFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>requestCountFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>EncodingFilter</filter-name>
+  	<filter-class>kr.or.ddit.filter.EncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>EncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
   <resource-ref>
    <description>DB Connection</description>
    <res-ref-name>jdbc/oracleDB</res-ref-name>

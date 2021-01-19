@@ -31,7 +31,6 @@ public class LoginController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
 		HttpSession session = req.getSession();
 
 		//로그인 성공시 main.jsp로 이동
@@ -66,7 +65,7 @@ public class LoginController extends HttpServlet {
 		//로그인 성공 ==> service를 통해 데이터베이스에 저장된 값과 일치 할 때
 		//session에 데이터베이스에서 조회한 사용자 정보(userVo)를 저장
 		if(user != null && pass.equals(user.getPass())) {
-			session.setAttribute("vo", user);
+			session.setAttribute("S_USER", user);
 			req.getRequestDispatcher(req.getContextPath()+"/main.jsp").forward(req, resp);
 		}else {
 			resp.sendRedirect(req.getContextPath()+"/login.jsp");
