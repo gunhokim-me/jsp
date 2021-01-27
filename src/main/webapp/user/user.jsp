@@ -49,7 +49,12 @@ $(function(){
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img alt="이미지 없음" src="${cp}/profile/${user.userid }.png">
+							<%-- <img alt="이미지 없음" src="${cp}/profile/${user.userid }.png"> --%>
+							
+							<a href="/profileDownload?userid=${user.userid }"> <!-- 이미지 클릭 시 다운로드 -->
+								<img alt="이미지 어디감?" src="${cp}/profile?userid=${user.userid }"> <!-- 이미지를 서블릿에서 불러오는 것 -->
+							</a>
+							
 						</div>
 					</div>
 					

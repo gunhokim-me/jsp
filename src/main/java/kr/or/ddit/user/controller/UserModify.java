@@ -2,16 +2,21 @@ package kr.or.ddit.user.controller;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.user.service.UserServiceI;
+import kr.or.ddit.util.FileUtil;
 
+@MultipartConfig
 public class UserModify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -40,6 +45,26 @@ public class UserModify extends HttpServlet {
 		vo.setAddr1(request.getParameter("addr1"));
 		vo.setAddr2(request.getParameter("addr2"));
 		vo.setZipcode(request.getParameter("zipcode"));
+		
+		Part profile = request.getPart("profile");
+		String filename ="";
+		String realfilename ="";
+		if(profile.getSize() > 0) {
+			filename = FileUtil.getFileName(profile.getHeader("Content-Disposition"));
+			String fileExtension = FileUtil.getFileExtension(filename);
+			realfilename = UUID.randomUUID().toString() + fileExtension;
+			
+			profile.write("D:\\upload\\" + realfilename);
+//			profile.write(request.getContextPath() + "\\profile\\" + filename+fileExtension);
+			vo.setFilename(filename);
+			vo.setRealfilename(realfilename);
+		}else {
+			UserVo vo2 = new UserVo();
+			vo2 = service.selectUser(request.getParameter("userid"));
+			vo.setFilename(vo2.getFilename());
+			vo.setRealfilename(vo2.getRealfilename());
+		}
+		
 		
 		int cnt = service.modifyUser(vo);
 		if(cnt == 1) {
